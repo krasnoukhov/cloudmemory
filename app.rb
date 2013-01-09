@@ -14,9 +14,11 @@ Cuba.use Rack::Protection
 Cuba.use Clogger, format: :Combined, path: "./log/requests.log", reentrant: true
 Cuba.plugin Cuba::Render
 
+Cuba.settings[:render][:template_engine] = :slim
+
 Cuba.define do
   on root do
-    res.write render("views/index.slim")
+    res.write view("index")
   end
   
   on "assets" do
