@@ -15,6 +15,10 @@ Cuba.use Clogger, format: :Combined, path: "./log/requests.log", reentrant: true
 Cuba.plugin Cuba::Render
 
 Cuba.settings[:render][:template_engine] = :slim
+Cuba.settings[:instagram] = {
+  key: ENV["INSTAGRAM_KEY"],
+  secret: ENV["INSTAGRAM_SECRET"]
+}
 
 Cuba.define do
   on root do

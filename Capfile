@@ -40,7 +40,7 @@ after "deploy:update", "deploy:cleanup"
 namespace :deploy do
   # Restart
   task :start, roles: :web do 
-    run "cd #{current_path} && bundle exec thin start -d"
+    run "cd #{current_path} && source '#{shared_path}/.config' && bundle exec thin start -d"
   end
   task :stop, roles: :web do 
     run "cd #{current_path} && bundle exec thin stop"
