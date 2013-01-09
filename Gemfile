@@ -6,12 +6,18 @@ gem "thin"
 gem "clogger"
 gem "tilt"
 gem "slim"
+gem "instagram"
 
 group :development do
   gem "powify"
   gem "capistrano"
   gem "rvm-capistrano"
   gem "capistrano_colors"
+end
+
+group :test do
+  gem "cutest"
+  gem "capybara"
 end
 
 group :assets do

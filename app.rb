@@ -8,21 +8,39 @@ require "sprockets-sass"
 require "sass"
 require "compass"
 require "clogger"
+require "instagram"
 
+# Cuba plugins
 Cuba.use Rack::Session::Cookie, secret: SecureRandom.hex(64)
 Cuba.use Rack::Protection
 Cuba.use Clogger, format: :Combined, path: "./log/requests.log", reentrant: true
 Cuba.plugin Cuba::Render
 
+# Configuration
 Cuba.settings[:render][:template_engine] = :slim
-Cuba.settings[:instagram] = {
-  key: ENV["INSTAGRAM_KEY"],
-  secret: ENV["INSTAGRAM_SECRET"]
-}
+Instagram.configure do |config|
+  config.client_id = ENV["INSTAGRAM_KEY"]
+  config.client_secret = ENV["INSTAGRAM_SECRET"]
+end
 
+# Routes
 Cuba.define do
   on root do
     res.write view("index")
+  end
+  
+  on "photo/:key/:value" do |key, value|
+    photos = case key
+    when "tag"
+      Instagram.tag_recent_media value
+    when "location"
+      Instagram.media_search(*value.split(","))
+    else
+      []
+    end
+    
+    sample = photos.data.sample
+    res.redirect sample.images.standard_resolution.url if sample
   end
   
   on "assets" do
