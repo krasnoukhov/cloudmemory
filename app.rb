@@ -31,7 +31,7 @@ Cuba.define do
   
   on "photo/:key/:value" do |key, value|
     photos = case key
-    when "tag"
+    when "tags"
       Instagram.tag_recent_media value
     when "location"
       Instagram.media_search(*value.split(","))
@@ -40,7 +40,7 @@ Cuba.define do
     end
     
     sample = photos.data.sample
-    res.redirect sample.images.standard_resolution.url if sample
+    res.write({ caption: sample.caption, images: sample.images }.to_json) if sample
   end
   
   on "assets" do
