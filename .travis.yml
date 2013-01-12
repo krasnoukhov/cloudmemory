@@ -1,3 +1,4 @@
+script: "source ./.config && rake"
 language: ruby
 rvm:
   - 1.9.3
