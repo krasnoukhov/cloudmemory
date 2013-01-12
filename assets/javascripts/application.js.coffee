@@ -10,8 +10,9 @@ App =
       # Load images
       $slide.find(".image").each ->
         $image = $(this)
-        query = "/photo/#{$image.attr("data-search-key")}/#{$image.attr("data-search-value")}"
+        App.image($slide, $image)
         
+        query = "/photo/#{$image.attr("data-search-key")}/#{$image.attr("data-search-value")}"
         $.ajax(url: query, dataType: "json", type: "GET")
           .error (xhr, status, error) ->
             console.error error
@@ -19,6 +20,8 @@ App =
           .done (result) ->
             $image.data("result", result)
             App.image($slide, $image)
+            $image.css
+              backgroundImage: "url(#{result.images.standard_resolution.url})"
   
   slide: ($slide) ->
     # Find position/dimensions
@@ -53,15 +56,12 @@ App =
       left: Math.round(original[0]*$image.parent().width()/$slide.data("original")[0])
       bottom: Math.round(original[1]*$image.parent().height()/$slide.data("original")[1])
     
-    result = $image.data("result")
     $image.css
       width: size.width
       height: size.height
       left: position.left
       bottom: position.bottom
-      backgroundImage: "url(#{result.images.standard_resolution.url})"
-      backgroundSize: "#{size.width}px #{size.height}px"
-    
+    $image.css backgroundSize: "#{size.width}px #{size.height}px" if $image.data("result")
     $image.rotate(parseInt($image.attr("data-rotate")))
     
 $ ->
@@ -74,4 +74,4 @@ $ ->
       
       $slide.find(".image").each ->
         $image = $(this)
-        App.image($slide, $image) if $image.data("result")
+        App.image($slide, $image)
