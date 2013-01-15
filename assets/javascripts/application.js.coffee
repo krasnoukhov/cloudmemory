@@ -24,6 +24,11 @@ App =
               backgroundImage: "url(#{result.images.standard_resolution.url})"
   
   slide: ($slide) ->
+    # Slide index
+    $slide.css
+      width: $("body").width()
+      left: $slide.index()*$("body").width()
+    
     # Find position/dimensions
     original = (parseInt(value) for value in $slide.attr("data-size").split("x"))
     $slide.data("original", original)
@@ -38,7 +43,7 @@ App =
       final[1] = Math.round(original[1]*final[0]/original[0])
     else
       final = original
-    
+      
     $slide.find(".container").css
       width: final[0]
       height: final[1]
@@ -66,6 +71,26 @@ App =
     
 $ ->
   App.slides()
+  
+  $("[data-lightbox]").on "click", ->
+    $this = $(this)
+    $(".lightbox.#{$this.attr("data-lightbox")}").fadeIn()
+    false
+    
+  $(".image").on "click", ->
+    $this = $(this)
+    result = $this.data("result")
+    return false unless result
+    
+    $(".lightbox.photo h1").text(result.caption.text)
+    $(".lightbox.photo img").attr(src: result.images.standard_resolution.url)
+    
+    $(".lightbox.photo").fadeIn()
+    false
+  
+  $(".lightbox .close").on "click", ->
+    $(".lightbox").hide()
+    false
   
   $(window).bind "resize", ->
     $(".slide").each ->

@@ -56,6 +56,7 @@ body {
     right: 0;
     bottom: 65px;
     left: 0;
+    overflow: hidden;
     
     .slide {
       position: absolute;
@@ -74,8 +75,10 @@ body {
         height: 1px;
         
         .image {
+          @include single-box-shadow(rgba(0, 0, 0, 0.3), 0, 0, 3px, 1px);
           position: absolute;
           background: url(/images/loader.gif) no-repeat center center;
+          background-color: rgba(255, 255, 255, 0.5);
         }
         
         /* Containers */
@@ -84,6 +87,39 @@ body {
           background-size: 100% 100%;
         }
       }
+    }
+  }
+  
+  .lightbox {
+    @include box-sizing(border-box);
+    display: none;
+    position: absolute;
+    top: 85px;
+    right: 0;
+    bottom: 65px;
+    left: 0;
+    padding: 45px 100px 45px 100px;
+    background: #fff;
+    
+    .close {
+      position: absolute;
+      top: 45px;
+      right: 100px;
+      font-size: 1.5em;
+      cursor: pointer;
+    }
+    
+    h1, h2 {
+      margin-top: 0;
+      padding-top: 0;
+    }
+    
+    p {
+      max-width: 80%;
+    }
+    
+    img {
+      max-height: 100%;
     }
   }
   

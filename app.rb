@@ -26,7 +26,7 @@ end
 # Routes
 Cuba.define do
   on root do
-    res.write view("index")
+    res.write render("views/index.slim")
   end
   
   on "photo/:key/:value" do |key, value|
