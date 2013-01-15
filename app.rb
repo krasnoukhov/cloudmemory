@@ -30,13 +30,17 @@ Cuba.define do
   end
   
   on "photo/:key/:value" do |key, value|
-    photos = case key
-    when "tags"
-      Instagram.tag_recent_media value
-    when "location"
-      Instagram.media_search(*value.split(","))
-    else
-      []
+    begin
+      photos = case key
+      when "tags"
+        Instagram.tag_recent_media value
+      when "location"
+        Instagram.media_search(*value.split(","))
+      else
+        []
+      end
+    rescue
+      rew.write "Instagram Error"
     end
     
     sample = photos.data.sample
