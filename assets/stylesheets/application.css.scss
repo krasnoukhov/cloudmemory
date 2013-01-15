@@ -24,6 +24,12 @@ body {
       padding: 0;
       font-size: 32px;
       line-height: 34px;
+      
+      a {
+        font-size: 32px;
+        line-height: 34px;
+        text-decoration: none;
+      }
     }
     
     p, a {
@@ -37,7 +43,7 @@ body {
   header {
     top: 0;
     
-    a {
+    > a {
       position: absolute;
       right: 70px;
       bottom: 11px;
