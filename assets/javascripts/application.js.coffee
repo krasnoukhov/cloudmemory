@@ -74,6 +74,7 @@ $ ->
   
   $("[data-lightbox]").on "click", ->
     $this = $(this)
+    $(".lightbox").hide()
     $(".lightbox.#{$this.attr("data-lightbox")}").fadeIn()
     false
     
