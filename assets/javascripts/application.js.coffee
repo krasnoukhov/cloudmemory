@@ -1,5 +1,6 @@
 //= require jquery
 //= require rotate
+//= require mousetrap
 
 App =
   slides: ->
@@ -26,8 +27,8 @@ App =
   slide: ($slide) ->
     # Slide index
     $slide.css
-      width: $("body").width()
-      left: $slide.index()*$("body").width()
+      width: $("section").width()
+      left: $slide.index()*$("section").width()
     
     # Find position/dimensions
     original = (parseInt(value) for value in $slide.attr("data-size").split("x"))
@@ -69,9 +70,42 @@ App =
     $image.css backgroundSize: "#{size.width}px #{size.height}px" if $image.data("result")
     $image.rotate(parseInt($image.attr("data-rotate")))
     
+    # Corner
+    $corner = $image.find(".corner")
+    if $corner.length == 1
+      original = (parseInt(value) for value in $corner.attr("data-size").split("x"))
+      size =
+        width: Math.round(original[0]*($image.parent().width()/$slide.data("original")[0]+0.02))
+        height: Math.round(original[1]*($image.parent().height()/$slide.data("original")[1]+0.02))
+      
+      $corner.css
+        width: size.width
+        height: size.height
+        backgroundSize: "#{size.width}px #{size.height}px"
+    
 $ ->
   App.slides()
   
+  # Slides
+  $(".slides").data "step", 0
+  $(".slides").data "go", (go) ->
+    step = Math.max(0, parseInt($(".slides").data("step")) + go)
+    slide = $(".slides .slide").eq(step)
+    if slide.length == 1
+      if step == 0 then $(".arrows .left").css opacity: 0 else $(".arrows .left").css opacity: 1
+      if step == $(".slides .slide").length-1 then $(".arrows .right").css opacity: 0 else $(".arrows .right").css opacity: 1
+      
+      $(".slides").data "step", step
+      $(".slides").css(left: -(step*slide.width()))
+    
+  
+  $(".slides").data("go")(0)
+  Mousetrap.bind "right", -> $(".slides").data("go")(1)
+  Mousetrap.bind "left", -> $(".slides").data("go")(-1)
+  $(".arrows .left").on "click", -> Mousetrap.trigger "left"
+  $(".arrows .right").on "click", -> Mousetrap.trigger "right"
+  
+  # Lightboxes
   $("[data-lightbox]").on "click", ->
     $this = $(this)
     $(".lightbox").hide()
@@ -93,10 +127,12 @@ $ ->
     $(".lightbox").hide()
     false
   
+  # Resizing
   $(window).bind "resize", ->
     $(".slide").each ->
       $slide = $(this)
       App.slide($slide)
+      $(".slides").data("go")(0)
       
       $slide.find(".image").each ->
         $image = $(this)

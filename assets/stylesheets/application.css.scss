@@ -2,6 +2,7 @@
 
 @import url(http://fonts.googleapis.com/css?family=EB+Garamond&subset=latin,cyrillic);
 @import "compass/css3";
+@import "compass/css3/user-interface";
 
 /*html, body {
   width: 100%;
@@ -64,6 +65,50 @@ body {
     left: 0;
     overflow: hidden;
     
+    .arrows {
+      @include user-select(none);
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      color: #fff;
+      font-size: 40px;
+      line-height: 40px;
+      
+      .left, .right {
+        @include transition-property(opacity);
+        @include transition-duration(1s);
+        @include transition-timing-function(ease-in);
+        position: absolute;
+        top: 50%;
+        margin-top: -20px;
+        cursor: pointer;
+        z-index: 1;
+      }
+      
+      .left {
+        @include opacity(0);
+        left: 10px;
+      }
+      
+      .right {
+        right: 10px;
+      }
+    }
+    
+    .slides {
+      @include transition-property(left);
+      @include transition-duration(1s);
+      @include transition-timing-function(ease-in);
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 99999px;
+    }
+    
     .slide {
       position: absolute;
       top: 0;
@@ -71,6 +116,7 @@ body {
       bottom: 0;
       left: 0;
       background: url(/images/texture.jpg) repeat center center;
+      border-right: 1px solid #fff;
       
       .container {
         /*@include opacity(0);*/
@@ -85,11 +131,43 @@ body {
           position: absolute;
           background: url(/images/loader.gif) no-repeat center center;
           background-color: rgba(255, 255, 255, 0.5);
+          
+          .corner {
+            position: absolute;
+            left: -1%;
+            bottom: -1%;
+          }
         }
-        
-        /* Containers */
-        &:nth-child(1) {
+      }
+      
+      /* Containers */
+      &:nth-child(1) {
+        .container {
           background: url(/images/bg1.jpg) no-repeat left top;
+          background-size: 100% 100%;
+        }
+      }
+      &:nth-child(2) {
+        .container {
+          background: url(/images/bg2.jpg) no-repeat left top;
+          background-size: 100% 100%;
+        }
+      }
+      &:nth-child(3) {
+        .container {
+          background: url(/images/bg3.jpg) no-repeat left top;
+          background-size: 100% 100%;
+        }
+      }
+      &:nth-child(4) {
+        .container {
+          background: url(/images/bg4.jpg) no-repeat left top;
+          background-size: 100% 100%;
+        }
+      }
+      &:nth-child(5) {
+        .container {
+          background: url(/images/bg5.jpg) no-repeat left top;
           background-size: 100% 100%;
         }
       }
@@ -107,6 +185,7 @@ body {
     padding: 45px 100px 45px 100px;
     background: rgba(69, 69, 69, 0.9);
     color: #fff;
+    z-index: 2;
     
     .close {
       position: absolute;
