@@ -131,6 +131,7 @@ body {
           position: absolute;
           background: url(/images/loader.gif) no-repeat center center;
           background-color: rgba(255, 255, 255, 0.5);
+          cursor: pointer;
           
           .corner {
             position: absolute;
@@ -206,6 +207,7 @@ body {
     }
     
     img {
+      @include single-box-shadow(rgba(0, 0, 0, 0.3), 0, 0, 10px, 1px);
       max-width: 100%;
       max-height: 100%;
     }
@@ -215,6 +217,19 @@ body {
       
       h1, h2, p {
         max-width: 100%;
+      }
+      
+      h1 {
+        @include single-box-shadow(#734f43, 0, 0, 0, 3px, inset);
+        @include border-radius(7px);
+        display: inline-block;
+        margin: 20px 0 0 0;
+        background: #fff;
+        border: 3px solid #fff;
+        padding: 0 10px;
+        color: #000;
+        font-size: 20px;
+        line-height: 40px;
       }
     }
   }

@@ -117,7 +117,7 @@ $ ->
     result = $this.data("result")
     return false unless result
     
-    $(".lightbox.photo h1").text(result.caption.text) if result.caption
+    $(".lightbox.photo h1").text($this.attr("data-caption"))
     $(".lightbox.photo img").attr(src: result.images.standard_resolution.url)
     
     $(".lightbox.photo").fadeIn()
@@ -126,6 +126,8 @@ $ ->
   $(".lightbox .close").on "click", ->
     $(".lightbox").hide()
     false
+  
+  Mousetrap.bind "esc", -> $(".lightbox:visible .close").trigger "click"
   
   # Resizing
   $(window).bind "resize", ->
