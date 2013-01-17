@@ -6,7 +6,7 @@ default_run_options[:pty] = true
 # Application
 set   :application, "cloudmemory"
 set   :project, "cloudmemory"
-set   :domain, "cloudmemory.krasnoukhov.com"
+set   :domain, "cloudmemory.is"
 set   :deploy_to, "/home/#{project}/www/#{project}/"
 role  :web, domain
 
@@ -21,7 +21,7 @@ set   :user, "cloudmemory"
 # Options
 set   :use_sudo, false
 set   :keep_releases, 1
-set   :rvm_ruby_string, "ruby-1.9.3-p362@cloudmemory"
+set   :rvm_ruby_string, "ruby-1.9.3@cloudmemory"
 set   :rvm_type, :user
 
 # Bundler
