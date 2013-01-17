@@ -130,6 +130,7 @@ $ ->
     false
   
   Mousetrap.bind "esc", -> $(".lightbox:visible .close").trigger "click"
+  $(".lightbox").on "click", -> Mousetrap.trigger "esc"
   
   # Resizing
   $(window).bind "resize", ->
