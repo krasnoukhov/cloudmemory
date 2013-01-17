@@ -11,6 +11,7 @@ A photo album was intended to be a private experience, shared by its owner with 
 "Cloud Memory" consists of 2 parts: a physical object that is an old photo album found at a flea market in Paris and a website. The album was empty, with only  captions and 2 original photos left in it. I filled it with Instagram photos found by tags and geotags corresponding to the captions, placing them in the "traditional" photography context.
 The website features 5 pages of the album where each photo is, in fact, a stream generated with a specific tag or location, according to the original caption. Every time you open the album, you see new pictures. Instagram photos can't get old, they can only go away.  
 
+&copy; [Natalia Porkovskaya](http://cargocollective.com/natapokrovskaya)
 
 #### Tech description
 
