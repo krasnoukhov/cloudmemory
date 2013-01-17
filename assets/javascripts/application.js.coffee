@@ -72,7 +72,9 @@ App =
     
     # Corner
     $corner = $image.find(".corner")
-    if $corner.length == 1
+    $image.find(".corner").each ->
+      $corner = $(this)
+      
       original = (parseInt(value) for value in $corner.attr("data-size").split("x"))
       size =
         width: Math.round(original[0]*($image.parent().width()/$slide.data("original")[0]+0.02))
