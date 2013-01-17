@@ -10,15 +10,21 @@
 }*/
 
 body {
+  @include transition-property(background);
+  @include transition-duration(1s);
+  @include transition-timing-function(ease-in);
   font-family: 'EB Garamond', serif;
+  background: url(/images/texture.jpg) repeat left top;
   
   header, footer {
     @include box-sizing(border-box);
     position: absolute;
     right: 0;
     left: 0;
-    height: 85px;
+    height: 65px;
     padding: 15px 70px 15px 70px;
+    background: rgba(255, 255, 255, 0.6);
+    z-index: 1;
     
     h1 {
       margin: 4px 0 0 0;
@@ -43,25 +49,26 @@ body {
   
   header {
     top: 0;
+    padding-top: 0;
     
     > a {
       position: absolute;
       right: 70px;
-      bottom: 11px;
+      bottom: 6px;
       text-decoration: none;
     }
   }
   
   footer {
     bottom: 0;
-    height: 65px;
+    height: 50px;
   }
   
   section {
     position: absolute;
-    top: 85px;
+    top: 75px;
     right: 0;
-    bottom: 65px;
+    bottom: 60px;
     left: 0;
     overflow: hidden;
     
@@ -115,8 +122,6 @@ body {
       right: 0;
       bottom: 0;
       left: 0;
-      background: url(/images/texture.jpg) repeat center center;
-      border-right: 1px solid #fff;
       
       .container {
         /*@include opacity(0);*/
@@ -185,9 +190,9 @@ body {
     @include box-sizing(border-box);
     display: none;
     position: absolute;
-    top: 85px;
+    top: 65px;
     right: 0;
-    bottom: 65px;
+    bottom: 50px;
     left: 0;
     padding: 45px 100px 45px 100px;
     background: rgba(69, 69, 69, 0.9);

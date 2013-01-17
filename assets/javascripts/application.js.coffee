@@ -98,7 +98,9 @@ $ ->
       if step == $(".slides .slide").length-1 then $(".arrows .right").css opacity: 0 else $(".arrows .right").css opacity: 1
       
       $(".slides").data "step", step
-      $(".slides").css(left: -(step*slide.width()))
+      left = -(step*slide.width())
+      $(".slides").css(left: left)
+      $("body").css backgroundPosition: "#{left}px 0"
     
   
   $(".slides").data("go")(0)
