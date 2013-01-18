@@ -13,7 +13,7 @@ role  :web, domain
 # Source
 set   :scm, "git"
 set   :repository, "git@github.com:krasnoukhov/#{project}.git"
-set   :branch, "layout"
+set   :branch, "master"
 set   :repository_cache, "git"
 set   :deploy_via, :remote_cache
 set   :user, "cloudmemory"
