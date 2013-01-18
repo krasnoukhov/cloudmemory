@@ -73,7 +73,7 @@ $ ->
   App.slides()
   
   # Slides
-  $(".slides").data "step", 0
+  $(".slides").data "step", $(".slide[data-active]").index()
   $(".slides").data "go", (go) ->
     step = Math.max(0, parseInt($(".slides").data("step")) + go)
     $slide = $(".slides .slide").eq(step)
@@ -94,7 +94,7 @@ $ ->
         App.image($slide, $image)
         $image.data("processed", true)
         
-        query = "/photo/#{$image.attr("data-search-key")}/#{$image.attr("data-search-value")}"
+        query = "/photo/#{$image.attr("data-search-key")}/#{$image.attr("data-search-value")}?seed=#{Math.random()}"
         $.ajax(url: query, dataType: "json", type: "GET")
           .error (xhr, status, error) ->
             console.error error
