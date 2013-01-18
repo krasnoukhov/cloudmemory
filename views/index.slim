@@ -2,8 +2,8 @@ doctype html
 html
   head
     title Cloud Memory
-    link href="/assets/application.css?4" media="screen" rel="stylesheet" type="text/css"
-    script src="/assets/application.js?4" type="text/javascript"
+    link href="/assets/application.css?5" media="screen" rel="stylesheet" type="text/css"
+    script src="/assets/application.js?5" type="text/javascript"
     javascript:
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-37771386-1']);
@@ -14,6 +14,14 @@ html
         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
+    
+    meta property="go:type" content="website"
+    meta property="go:url" content="#{req.url}"
+    meta property="go:title" content="Cloud Memory"
+    meta property="go:site_name" content="Cloud Memory"
+    meta property="go:description" content=""
+    meta property="go:image" content="//#{req.host_with_port}/images/logo.png"
+    link rel="image_src" href="//#{req.host_with_port}/images/logo.png"
   
   body
     header
