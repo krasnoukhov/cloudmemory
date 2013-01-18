@@ -40,7 +40,7 @@ after "deploy:update", "deploy:cleanup"
 namespace :deploy do
   # Restart
   task :start, roles: :web do 
-    run "cd #{current_path} && source #{current_path}/.config && bundle exec unicorn -c #{current_path}/config/unicorn.rb -E production -D"
+    run "cd #{current_path} && source #{shared_path}/.config && bundle exec unicorn -c #{current_path}/config/unicorn.rb -E production -D"
   end
   task :stop, roles: :web do 
     run "kill -s QUIT `cat #{current_path}/tmp/pids/unicorn.pid`; true"
