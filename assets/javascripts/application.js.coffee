@@ -17,8 +17,8 @@ App =
     # Find position/dimensions
     original = (parseInt(value) for value in $slide.attr("data-size").split("x"))
     $slide.data("original", original)
-    container = [$("section").width(), $("section").height()]
-    final = [$("section").width(), $("section").height()]
+    container = [$("section").width(), $(".slides").height()]
+    final = [$("section").width(), $(".slides").height()]
     
     # Fit width
     if final[1] <= original[1]

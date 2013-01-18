@@ -66,10 +66,11 @@ body {
   
   section {
     position: absolute;
-    top: 75px;
+    top: 0;
     right: 0;
-    bottom: 60px;
+    bottom: 0;
     left: 0;
+    overflow: hidden;
     
     .arrows {
       @include user-select(none);
@@ -108,9 +109,9 @@ body {
       @include transition-duration(1s);
       @include transition-timing-function(ease-in);
       position: absolute;
-      top: 0;
+      top: 75px;
       right: 0;
-      bottom: 0;
+      bottom: 60px;
       left: 0;
       width: 99999px;
     }
