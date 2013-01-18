@@ -8,22 +8,6 @@ App =
       $slide = $(this)
       App.slide($slide)
       
-      # Load images
-      $slide.find(".image").each ->
-        $image = $(this)
-        App.image($slide, $image)
-        
-        query = "/photo/#{$image.attr("data-search-key")}/#{$image.attr("data-search-value")}"
-        $.ajax(url: query, dataType: "json", type: "GET")
-          .error (xhr, status, error) ->
-            console.error error
-          
-          .done (result) ->
-            $image.data("result", result)
-            App.image($slide, $image)
-            $image.css
-              backgroundImage: "url(#{result.images.standard_resolution.url})"
-  
   slide: ($slide) ->
     # Slide index
     $slide.css
@@ -92,16 +76,35 @@ $ ->
   $(".slides").data "step", 0
   $(".slides").data "go", (go) ->
     step = Math.max(0, parseInt($(".slides").data("step")) + go)
-    slide = $(".slides .slide").eq(step)
-    if slide.length == 1
+    $slide = $(".slides .slide").eq(step)
+    if $slide.length == 1
       if step == 0 then $(".arrows .left").css opacity: 0 else $(".arrows .left").css opacity: 1
       if step == $(".slides .slide").length-1 then $(".arrows .right").css opacity: 0 else $(".arrows .right").css opacity: 1
       
       $(".slides").data "step", step
-      left = -(step*slide.width())
+      left = -(step*$slide.width())
       $(".slides").css(left: left)
       $("body").css backgroundPosition: "#{left}px 0"
-    
+      
+      # Load images
+      $slide.find(".image").each ->
+        $image = $(this)
+        return if $image.data("processed")
+        
+        App.image($slide, $image)
+        $image.data("processed", true)
+        
+        query = "/photo/#{$image.attr("data-search-key")}/#{$image.attr("data-search-value")}"
+        $.ajax(url: query, dataType: "json", type: "GET")
+          .error (xhr, status, error) ->
+            console.error error
+          
+          .done (result) ->
+            $image.data("result", result)
+            App.image($slide, $image)
+            $image.css
+              backgroundImage: "url(#{result.images.standard_resolution.url})"
+      
   
   $(".slides").data("go")(0)
   Mousetrap.bind "right", -> $(".slides").data("go")(1)
