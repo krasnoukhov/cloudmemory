@@ -40,7 +40,7 @@ Cuba.define do
         []
       end
     rescue
-      rew.write "Instagram Error"
+      res.write "Instagram Error"
     end
     
     sample = photos.data.sample

@@ -3,7 +3,7 @@ source :rubygems
 gem "rake"
 gem "cuba"
 gem "rack-protection"
-gem "thin"
+gem "unicorn"
 gem "clogger"
 gem "tilt"
 gem "slim"
