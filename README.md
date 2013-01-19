@@ -1,4 +1,4 @@
-# Cloud Memory [![Build Status](https://travis-ci.org/krasnoukhov/cloudmemory.png?branch=master)](https://travis-ci.org/krasnoukhov/cloudmemory)
+# Cloud Memory
 
 ### From memorabilia to ephemera 
 
@@ -9,5 +9,7 @@ The website features 5 pages of an old photo album I found at a flea market in P
 &copy; [Natalia Porkovskaya](http://cargocollective.com/natapokrovskaya)
 
 #### Tech description
+
+[![Build Status](https://travis-ci.org/krasnoukhov/cloudmemory.png)](https://travis-ci.org/krasnoukhov/cloudmemory)
 
 Written in [Ruby](http://www.ruby-lang.org/) and [CoffeeScript](http://coffeescript.org/) using awesome [cuba](https://github.com/soveran/cuba), [sprockets](https://github.com/sstephenson/sprockets) and [slim](http://slim-lang.com/). Tested with [cutest](https://github.com/djanowski/cutest) and [capybara](https://github.com/jnicklas/capybara).
