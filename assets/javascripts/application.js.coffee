@@ -21,10 +21,10 @@ App =
     final = [$("section").width(), $(".slides").height()]
     
     # Fit width
-    if final[1] <= original[1]
+    if final[1] <= final[0] && final[1] <= original[1]
       final[0] = Math.round(original[0]*final[1]/original[1])
     # Fit height
-    else if final[0] <= original[1]
+    else if final[0] <= original[0] && final[0] <= original[0]
       final[1] = Math.round(original[1]*final[0]/original[0])
     else
       final = original
