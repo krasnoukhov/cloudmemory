@@ -40,13 +40,13 @@ after "deploy:update", "deploy:cleanup"
 namespace :deploy do
   # Restart
   task :start, roles: :web do 
-    run "cd #{current_path} && source #{shared_path}/.config && bundle exec unicorn -c #{current_path}/config/unicorn.rb -E production -D"
+    run "/etc/init.d/unicorn #{project} start", pty: false
   end
   task :stop, roles: :web do 
-    run "kill -s QUIT `cat #{current_path}/tmp/pids/unicorn.pid`; true"
+    run "/etc/init.d/unicorn #{project} stop", pty: false
   end
   task :reload, roles: :web do
-    run "kill -s USR2 `cat #{current_path}/tmp/pids/unicorn.pid`; true"
+    run "/etc/init.d/unicorn #{project} reload", pty: false
   end
   task :restart, roles: :web do
     reload

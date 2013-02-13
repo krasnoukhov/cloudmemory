@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
 
+if [ -f ".config" ]; then
+  source ".config"
+fi
+
+if [ -f "/home/cloudmemory/www/cloudmemory/shared/.config" ]; then
+  source "/home/cloudmemory/www/cloudmemory/shared/.config"
+fi
+
 # This is an RVM Project .rvmrc file, used to automatically load the ruby
 # development environment upon cd'ing into the directory
 
