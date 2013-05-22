@@ -40,13 +40,13 @@ after "deploy:update", "deploy:cleanup"
 namespace :deploy do
   # Restart
   task :start, roles: :web do 
-    run "/etc/init.d/unicorn #{project} start", pty: false
+    run "/etc/init.d/railsweb #{project} start", pty: false
   end
   task :stop, roles: :web do 
-    run "/etc/init.d/unicorn #{project} stop", pty: false
+    run "/etc/init.d/railsweb #{project} stop", pty: false
   end
   task :reload, roles: :web do
-    run "/etc/init.d/unicorn #{project} reload", pty: false
+    run "/etc/init.d/railsweb #{project} reload", pty: false
   end
   task :restart, roles: :web do
     reload
