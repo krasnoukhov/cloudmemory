@@ -16,6 +16,10 @@ body {
   font-family: 'EB Garamond', serif;
   background: url(/images/texture.jpg) repeat left top;
   
+  .pull-right {
+    float: right;
+  }
+  
   header, footer {
     @include box-sizing(border-box);
     position: absolute;
@@ -243,9 +247,5 @@ body {
         line-height: 40px;
       }
     }
-  }
-  
-  footer {
-    
   }
 }
