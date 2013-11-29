@@ -21,7 +21,7 @@ set   :user, "cloudmemory"
 set   :use_sudo, false
 set   :keep_releases, 1
 set   :shared_children, shared_children + %w(tmp/sockets)
-set   :rvm_ruby_string, "ruby-1.9.3@cloudmemory"
+set   :rvm_ruby_string, `cat .ruby-version`
 set   :rvm_type, :user
 
 # Bundler
