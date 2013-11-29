@@ -43,7 +43,7 @@ Cuba.define do
       res.write "Instagram Error"
     end
     
-    sample = photos.data.sample
+    sample = photos.sample
     res.write({ caption: sample.caption, images: sample.images }.to_json) if sample
   end
   
