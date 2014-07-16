@@ -1,5 +1,5 @@
 # Workers
-worker_processes 8
+worker_processes 2
 working_directory "/home/cloudmemory/www/cloudmemory/current"
 
 # This loads the application in the master process before forking
