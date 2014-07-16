@@ -8,13 +8,13 @@ html
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-37771386-1']);
       _gaq.push(['_trackPageview']);
-      
+
       (function() {
         var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
-    
+
     meta property="og:type" content="website"
     meta property="og:url" content="#{req.url}"
     meta property="og:title" content="Cloud Memory"
@@ -22,14 +22,14 @@ html
     meta property="og:description" content="The Cloud Memory project explores the idea that in the world where everything has been photographed, one might not need to take a picture, but just pull it out from a «cloud» of shared personal imagery."
     meta property="og:image" content="http://#{req.host_with_port}/images/logo.png"
     link rel="image_src" href="http://#{req.host_with_port}/images/logo.png"
-  
+
   body
     header
       h1
         a href="/" Cloud Memory
       p by Natalia Pokrovskaya
       a href="/" data-lightbox="about" About
-    
+
     section
       .arrows
         .left &larr;
@@ -46,7 +46,7 @@ html
               .corner.corner-right data-size="249x245" style="background-image: url(/images/bg1corner6.png)"
             a.image href="/" data-search-key="location" data-search-value="49.111171,2.218744" data-size="1000x1000" data-position="3360,470" data-rotate="8" data-caption="The beach of Isle-Adam"
               .corner.corner-left data-size="234x248" style="background-image: url(/images/bg1corner7.png)"
-        
+
         // 2
         .slide data-size="4500x3250"
           .container
@@ -63,7 +63,7 @@ html
               .corner.corner-right data-size="241x248" style="background-image: url(/images/bg2corner10.png)"
             a.image href="/" data-search-key="tags" data-search-value="lacanau" data-size="1000x1000" data-position="3340, 270" data-rotate="9" data-caption="The channel from Hourtin to Lacanau"
               .corner.corner-right data-size="253x248" style="background-image: url(/images/bg2corner12.png)"
-        
+
         // 3
         .slide data-size="4500x3250"
           .container
@@ -71,7 +71,7 @@ html
               .corner.corner-left data-size="241x239" style="background-image: url(/images/bg3corner1.png)"
             a.image href="/" data-search-key="tags" data-search-value="firstlesson" data-size="1000x1000" data-position="1880,1030" data-rotate="-1" data-caption="First lesson?.."
               .corner.corner-right data-size="234x237" style="background-image: url(/images/bg3corner4.png)"
-        
+
         // 4
         .slide data-size="4500x3250"
           .container
@@ -79,7 +79,7 @@ html
               .corner.corner-left data-size="224x216" style="background-image: url(/images/bg4corner1.png)"
             .image data-search-key="tags" data-search-value="challenge" data-size="1000x1000" data-position="1200,540" data-rotate="-6" data-caption="One more challenge!"
               .corner.corner-right data-size="237x233" style="background-image: url(/images/bg4corner2.png)"
-        
+
         // 5
         .slide data-size="4500x3250"
           .container
@@ -91,29 +91,29 @@ html
               .corner.corner-left data-size="237x232" style="background-image: url(/images/bg5corner7.png)"
             a.image href="/" data-search-key="tags" data-search-value="victory" data-size="1000x1000" data-position="3010,550" data-rotate="10" data-caption="After the victory!"
               .corner.corner-left data-size="237x232" style="background-image: url(/images/bg5corner7.png)"
-    
+
     .lightbox.about
       .close ✖
       h2 From memorabilia to ephemera
-      
+
       p
-        | The common photo album has significantly transformed its memory function since its invention. Instagram, the latest incarnation of a personal photo album, produces an enormous amount of personal imagery, formally identical to that of the traditional photo albums. But today these photographs have evolved from "ça a été" into "what's going on". Photos taken aren't supposed to preserve memories – they are meant to be glanced at and then to flow away with the stream.      
+        | The common photo album has significantly transformed its memory function since its invention. Instagram, the latest incarnation of a personal photo album, produces an enormous amount of personal imagery, formally identical to that of the traditional photo albums. But today these photographs have evolved from "ça a été" into "what's going on". Photos taken aren't supposed to preserve memories – they are meant to be glanced at and then to flow away with the stream.
       p
         | A photo album was intended to be a private experience, shared by its owner with people of their choice. An Instagram photo is meant to be shared, with such built-in tools as tags and geotags. What if in the age of cloudified data our personal photographs have also formed a "cloud memory"? I wanted to explore the idea that in the world where everything has been photographed, one might not need to take a picture, but just pull it out from a "cloud" of shared personal imagery. Paraphrasing Lacan, with these photos one sees him/herself "in The Other's Other". Personal becomes shared and then, anonymous.
       p
         | "Cloud Memory" consists of 2 parts: a physical object that is an old photo album found at a flea market in Paris and a website. The album was empty, with only captions and 2 original photos left in it. I filled it with Instagram photos found by tags and geotags corresponding to the captions, placing them in the "traditional" photography context. The website features 5 pages of the album where each photo is, in fact, a stream generated with a specific tag or location, according to the original caption. Every time you open the album, you see new pictures. Instagram photos can't get old, they can only go away.
-    
+
     .lightbox.photo
       .close ✖
       img
       div
         h1
-    
+
     footer
       p
-        | &copy; 2013 
+        | &copy; 2013
         a href="http://cargocollective.com/natapokrovskaya" target="_blank" Natalia Pokrovskaya
-        | . Developed by 
+        | . Developed by
         a href="http://krasnoukhov.com/" target="_blank" Dmitry Krasnoukhov
-        | . 
+        | .
         a class="pull-right" href="https://github.com/krasnoukhov/cloudmemory" target="_blank" Source code
